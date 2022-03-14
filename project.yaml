@@ -1,0 +1,31 @@
+specVersion: 0.2.0
+name: testnet-subql-atocha
+version: 0.0.4
+description: This project can be use as a starting po...
+repository: https://github.com/octopus-appchains/testnet-subql-atocha.git
+schema:
+  file: ./schema.graphql
+network:
+  endpoint: >-
+    wss://gateway.testnet.octopus.network/atocha/yevqd2d4jhm0dqakaj4hkbyjjfg6ukbu
+  genesisHash: "0x1a0aadf6b8c9cee2789c8141e50340ceaccce41dc101569dbea8d8ca9dd8b856"
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
+        - handler: systemTokenTransferEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Transfer
