@@ -8,7 +8,7 @@ schema:
 network:
   endpoint: >-
     wss://gateway.testnet.octopus.network/atocha/yevqd2d4jhm0dqakaj4hkbyjjfg6ukbu
-  genesisHash: "0x1a0aadf6b8c9cee2789c8141e50340ceaccce41dc101569dbea8d8ca9dd8b856"
+  genesisHash: "0xa8355f905404fd9c98b1107b1b13069679bd62f9abdac1739363cbad5a67cbc4"
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1
