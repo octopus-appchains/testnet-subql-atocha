@@ -1,11 +1,11 @@
 {
   "name": "testnet-subql-atocha",
-  "version": "0.0.4",
+  "version": "1.0",
   "description": "This project can be use as a starting po...",
   "main": "dist/index.js",
   "scripts": {
     "build": "subql build",
-    "subql-publish": "subql publish",
+    "subql-publish": "./scripts/build.sh && subql publish",
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
     "codegen": "./node_modules/.bin/subql codegen"
@@ -20,7 +20,7 @@
   "author": "Octopus Team",
   "license": "MIT",
   "devDependencies": {
-    "@polkadot/api": "^6",
+    "@polkadot/api": "^9",
     "@subql/cli": "latest",
     "@subql/types": "latest",
     "typescript": "^4.1.3"
